@@ -1,5 +1,6 @@
 const index = require("../../app.js");
-const db = require('better-sqlite3')(`sys/db/NyghtPotBot.db`);
+const config = require('config');
+const db = require('better-sqlite3')(config.get('maininfo.db'));
 
 // Rcon
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
