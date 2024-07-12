@@ -6,5 +6,5 @@ COPY package*.json ./
 RUN apk update && apk add npm
 RUN npm install
 COPY . .
-EXPOSE 80
+EXPOSE 110
 CMD [ "node", "app.js" ]
