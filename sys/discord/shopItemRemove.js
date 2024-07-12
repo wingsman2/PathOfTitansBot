@@ -1,4 +1,4 @@
-const config = require('./config');
+const config = require('../../config');
 const db = require('better-sqlite3')(config.get('maininfo.db'));
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder } = require('discord.js');
 
