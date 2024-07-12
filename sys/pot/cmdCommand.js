@@ -1,8 +1,7 @@
 var Rcon = require('rcon');
 const index = require("../../app.js")
 const rconCommand = require("../rcon/rconCommand.js")
-const config = require('../../config');
-const db = require('better-sqlite3')(config.get('maininfo.db'));
+const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
 
 function cmdCommand(command, server, interaction) {
