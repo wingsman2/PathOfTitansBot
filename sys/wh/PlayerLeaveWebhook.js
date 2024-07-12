@@ -1,5 +1,6 @@
 const index = require("../../app.js");
-const db = require('better-sqlite3')(`sys/db/NyghtPotBot.db`);
+const config = require('config');
+const db = require('better-sqlite3')(config.get('maininfo.db'));
 
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events } = require('discord.js');
 
