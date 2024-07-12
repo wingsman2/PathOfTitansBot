@@ -52,7 +52,7 @@ let admin_channel1 = '1076904212589449336';
 let report_channel1 = '1076904185695588462';
 let chat_channel1 = '1076904039993835610';
 let quest_channel1 = 'None';
-
+/*
 // Server 2
 let activity_channel2 = '1076904536465227916';
 let combat_channel2 = '1076904657105989662';
@@ -76,7 +76,7 @@ let admin_channel4 = '1076906093931937944';
 let report_channel4 = '1076905985777619055';
 let chat_channel4 = '1076905926881194054';
 let quest_channel4 = 'None';
-
+*/
 
 const cooldown = new Set();
 const cooldownTime = 1000; 
@@ -192,7 +192,7 @@ app.post("/NyghtPotBot/AdminCommand/1", (req, res) => { //
 });
 
 
-
+/*
 // Server 2 webhooks
 app.post("/NyghtPotBot/PlayerChat/2", (req, res) => { //
 	res.status(200).end()
@@ -378,7 +378,7 @@ app.post("/NyghtPotBot/AdminCommand/4", (req, res) => { //
 	AdminCommandWebhook(req.body, 4, admin_channel4);
 	console.log(req.body);
 });
-
+*/
 
 
 
