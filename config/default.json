@@ -1,0 +1,3 @@
+const config = require('config');
+const port = config.get('server.port');
+const host = config.get('server.host');
