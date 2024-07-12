@@ -1,5 +1,5 @@
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
-
+function initdb(){
 db.run(`
        CREATE DATABASE IF NOT EXISTS "NyghtPotBot";
 ;
@@ -112,3 +112,4 @@ CREATE TABLE IF NOT EXISTS "worldevents" (
 	PRIMARY KEY("uid" AUTOINCREMENT)
 );
 `);
+}
