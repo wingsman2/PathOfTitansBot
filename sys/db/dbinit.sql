@@ -48,8 +48,10 @@ CREATE TABLE IF NOT EXISTS "redeem" (
 );
 
 CREATE TABLE IF NOT EXISTS "servers" (
+	"uid"	INTEGER NOT NULL,
 	"guildId"	TEXT,
-	"servers"	TEXT NOT NULL DEFAULT '[]'
+	"servers"	TEXT NOT NULL DEFAULT '[]',
+	PRIMARY KEY("uid" AUTOINCREMENT)
 );
 
 CREATE TABLE IF NOT EXISTS "shop" (
