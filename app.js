@@ -7,13 +7,13 @@ const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, GuildEmoji 
 const token = ``;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-const db = require('better-sqlite3')('./sys/db/Mesozoic.db');
+const db = require('better-sqlite3')('./sys/db/NyghtPotBot.db');
 
 const express = require("express");
 const app = express();
 const PORT = 110;
 app.use(bodyParser.json());
-app.listen(PORT, () => console.log(`>_ Mesozoic: Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`>_ NyghtPotBot: Listening on port ${PORT}`));
 
 const schedule = require('node-schedule');
 
@@ -129,62 +129,62 @@ db.prepare(`DELETE FROM nests;`).run();
 
 // Webhooks
 // Server 1 webhooks
-app.post("/Mesozoic/PlayerChat/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerChat/1", (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 1, chat_channel1);
 	console.log(req.body);
 });
-app.post("/Mesozoic/PlayerKilled/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerKilled/1", (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 1, combat_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogin/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogin/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogout/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogout/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerRespawn/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerRespawn/1", (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLeave/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLeave/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerReport/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerReport/1", (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 1, report_channel1, refID);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerQuestComplete/1", (req, res) => { //
+app.post("/NyghtPotBot/PlayerQuestComplete/1", (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 1, quest_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminSpectate/1", (req, res) => { //
+app.post("/NyghtPotBot/AdminSpectate/1", (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminCommand/1", (req, res) => { //
+app.post("/NyghtPotBot/AdminCommand/1", (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
@@ -193,186 +193,186 @@ app.post("/Mesozoic/AdminCommand/1", (req, res) => { //
 
 
 // Server 2 webhooks
-app.post("/Mesozoic/PlayerChat/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerChat/2", (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 2, chat_channel2);
 	console.log(req.body);
 });
-app.post("/Mesozoic/PlayerKilled/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerKilled/2", (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 2, combat_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogin/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogin/2", (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 2, activity_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogout/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogout/2", (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 2, activity_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerRespawn/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerRespawn/2", (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 2, activity_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLeave/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLeave/2", (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 2, activity_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerReport/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerReport/2", (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 2, report_channel2, refID);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerQuestComplete/2", (req, res) => { //
+app.post("/NyghtPotBot/PlayerQuestComplete/2", (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 2, quest_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminSpectate/2", (req, res) => { //
+app.post("/NyghtPotBot/AdminSpectate/2", (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 2, admin_channel2);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminCommand/2", (req, res) => { //
+app.post("/NyghtPotBot/AdminCommand/2", (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 2, admin_channel2);
 	console.log(req.body);
 });
 
 // Server 3 webhooks
-app.post("/Mesozoic/PlayerChat/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerChat/3", (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 3, chat_channel3);
 	console.log(req.body);
 });
-app.post("/Mesozoic/PlayerKilled/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerKilled/3", (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 3, combat_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogin/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogin/3", (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 3, activity_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogout/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogout/3", (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 3, activity_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerRespawn/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerRespawn/3", (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 3, activity_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLeave/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLeave/3", (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 3, activity_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerReport/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerReport/3", (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 3, report_channel3, refID);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerQuestComplete/3", (req, res) => { //
+app.post("/NyghtPotBot/PlayerQuestComplete/3", (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 3, quest_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminSpectate/3", (req, res) => { //
+app.post("/NyghtPotBot/AdminSpectate/3", (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 3, admin_channel3);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminCommand/3", (req, res) => { //
+app.post("/NyghtPotBot/AdminCommand/3", (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 3, admin_channel3);
 	console.log(req.body);
 });
 
 // Server 4 webhooks
-app.post("/Mesozoic/PlayerChat/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerChat/4", (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 4, chat_channel4);
 	console.log(req.body);
 });
-app.post("/Mesozoic/PlayerKilled/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerKilled/4", (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 4, combat_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogin/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogin/4", (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 4, activity_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLogout/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLogout/4", (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 4, activity_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerRespawn/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerRespawn/4", (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 4, activity_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerLeave/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerLeave/4", (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 4, activity_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerReport/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerReport/4", (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 4, report_channel4, refID);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/PlayerQuestComplete/4", (req, res) => { //
+app.post("/NyghtPotBot/PlayerQuestComplete/4", (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 4, quest_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminSpectate/4", (req, res) => { //
+app.post("/NyghtPotBot/AdminSpectate/4", (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 4, admin_channel4);
 	console.log(req.body);
 
 });
-app.post("/Mesozoic/AdminCommand/4", (req, res) => { //
+app.post("/NyghtPotBot/AdminCommand/4", (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 4, admin_channel4);
 	console.log(req.body);
@@ -402,7 +402,7 @@ schedule.scheduleJob('0 0 */5 * * *', function(){
 // Initialization ---------------------------------------------------------------------
 
 client.on('ready', () => {
-	console.log('Mesozoic\'s bot is online!');
+	console.log('NyghtPotBot\'s bot is online!');
 });
 
 const commands = [];
