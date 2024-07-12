@@ -1,5 +1,5 @@
 // Import database
-const config = require('config');
+const config = require('../../config');
 const db = require('better-sqlite3')(config.get('maininfo.db'));
 const index = require("../../app.js");
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, ActivityType } = require('discord.js');
