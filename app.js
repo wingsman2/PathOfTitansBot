@@ -1,5 +1,6 @@
 // IMPORTS ---------------------------------------------------------------------
 const fs = require('fs');
+const config = require('config');
 const bodyParser = require("body-parser")
 
 const { REST } = require('@discordjs/rest');
@@ -7,11 +8,11 @@ const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, GuildEmoji 
 const token = ``;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-const db = require('better-sqlite3')('./sys/db/NyghtPotBot.db');
+const db = require('better-sqlite3')(config.get('maininfo.db'));
 
 const express = require("express");
 const app = express();
-const PORT = 110;
+const PORT = config.get('maininfo.port');
 app.use(bodyParser.json());
 app.listen(PORT, () => console.log(`>_ NyghtPotBot: Listening on port ${PORT}`));
 
