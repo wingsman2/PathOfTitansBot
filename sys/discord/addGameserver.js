@@ -1,5 +1,5 @@
 // Import database
-const db = require('better-sqlite3')(`/sys/db/${process.env.db}`);
+const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
 function addGameserver(interaction, ip, port, password) {
 
