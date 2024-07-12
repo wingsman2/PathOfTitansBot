@@ -1,5 +1,5 @@
 // Import database
-const config = require('config');
+const config = require('./config');
 const db = require('better-sqlite3')(config.get('maininfo.db'));
 
 function listGameserver(interaction) {
