@@ -2,7 +2,8 @@ var Rcon = require('rcon');
 const index = require("../../app.js")
 const rconCommand = require("../rcon/rconCommand.js")
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
-const db = require('better-sqlite3')('sys/db/Mesozoic.db');
+const config = require('config');
+const db = require('better-sqlite3')(config.get('maininfo.db'));
 
 
 function triviaGenerate() {
