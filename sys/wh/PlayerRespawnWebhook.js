@@ -32,7 +32,7 @@ function PlayerRespawnWebhook(data, id, channel) {
             if (dataGx) {
                 let servers = JSON.parse(dataGx.servers);
                 if (dataG.discord_id == 'None') {
-                    rconCommandStandalone(`whisper ${data.PlayerName} Visit discord.gg/mesozoic-era, and link your account to access features such as; Nesting, leaderboard, profiles, and marks conversion for free!`, servers[id-1]);    
+                    rconCommandStandalone(`whisper ${data.PlayerName} Visit discord.gg/qtqtFNHxAr, and link your account to access features such as; Nesting, leaderboard, profiles, and marks conversion for free!`, servers[id-1]);    
                 } else if (dataG.discord_id.includes('P')) {
                     rconCommandStandalone(`whisper ${data.PlayerName} You have a pending Discord link! Type !confirm to confirm your link and get access features such as; Nesting, leaderboard, profiles, and marks conversion for free!`, servers[id-1]);    
                 }
