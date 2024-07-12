@@ -7,4 +7,4 @@ RUN apk update && apk add npm
 RUN npm install
 COPY . .
 EXPOSE 110
-CMD [ "node", "app.js" ]
+# CMD [ "node", "app.js" ]
