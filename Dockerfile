@@ -6,6 +6,7 @@ COPY package*.json ./
 ENV db="NyghtPotBot.db"
 RUN apk update && apk add npm
 RUN npm install
+RUN npm install sourcequery
 COPY . .
 EXPOSE 110
 CMD [ "node", "app.js" ]
