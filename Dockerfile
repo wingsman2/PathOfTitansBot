@@ -3,6 +3,7 @@ FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 # USER node
+ENV db="0.0.0.0"
 RUN apk update && apk add npm
 RUN npm install
 COPY . .
