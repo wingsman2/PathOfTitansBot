@@ -1,5 +1,5 @@
 const index = require("../../app.js");
-const db = require('better-sqlite3')(`sys/db/Mesozoic.db`);
+const db = require('better-sqlite3')(`sys/db/NyghtPotBot.db`);
 var Rcon = require('rcon');
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 
