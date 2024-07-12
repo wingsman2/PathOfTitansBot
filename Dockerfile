@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 # mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /app
 COPY package*.json ./
