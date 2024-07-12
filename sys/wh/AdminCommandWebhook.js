@@ -1,5 +1,5 @@
 const index = require("../../app.js");
-const db = require('better-sqlite3')(`sys/db/Mesozoic.db`);
+const db = require('better-sqlite3')(`sys/db/NyghtPotBot.db`);
 
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder } = require('discord.js');
 
