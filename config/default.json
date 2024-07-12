@@ -1,6 +1,6 @@
 {
     "maininfo": {
       "db": "./sys/db/NyghtPotBot.db",
-      "port": 80,
+      "port": 110,
     }
   }
