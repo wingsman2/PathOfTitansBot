@@ -9,7 +9,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 const db = require('better-sqlite3')(`./sys/db/${process.env.db}`);
 const initdb = require('./sys/db/initdb.js');
-initdb();
+initdb.initdb();
 
 
 const express = require("express");
