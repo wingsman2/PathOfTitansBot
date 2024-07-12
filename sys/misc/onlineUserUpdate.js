@@ -1,5 +1,6 @@
 // Import database
-const db = require('better-sqlite3')('sys/db/Mesozoic.db');
+const config = require('config');
+const db = require('better-sqlite3')(config.get('maininfo.db'));
 var SourceQuery = require('sourcequery');
 const index = require("../../app.js");
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, ActivityType } = require('discord.js');
