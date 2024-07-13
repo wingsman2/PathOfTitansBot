@@ -111,5 +111,9 @@ CREATE TABLE IF NOT EXISTS "worldevents" (
 	"coordinate"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
 );
-`);
+`,
+      function(error){
+        console.log("DBinitiated");
+    }
+      );
 }
