@@ -5,6 +5,13 @@ COPY package*.json ./
 # USER node
 ENV db="NyghtPotBot.db"
 ENV discord_token=""
+ENV bot_id=""
+ENV activity_channel_id="None"
+ENV combat_channel_id="None"
+ENV admin_channel_id="None"
+ENV report_channel_id="None"
+ENV chat_channel_id="None"
+ENV quest_channel_id="None"
 RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
