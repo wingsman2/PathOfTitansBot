@@ -23,6 +23,17 @@ function addGameserver(interaction, ip, port, password) {
 
 
 
+    } else {
+        let servers = JSON.parse(data.servers);
+        servers.push({
+            "ip": ip,
+            "port": port,
+            "password": password
+        });
+        let new_servers = JSON.stringify(servers);
+
+        const dataX = db.prepare(`INSERT INTO servers (servers, guildId) Values (servers = ?, guildId = ?);`).run(new_servers, interaction.guildId);
+        interaction.reply({content: `${interaction.user} Server has been created and added. Type /listgameserver to view your servers.`, ephemeral: true});
     }
 }
 
