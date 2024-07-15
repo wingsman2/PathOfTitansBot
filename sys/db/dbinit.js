@@ -1,15 +1,14 @@
 exports.initdb = function(){
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
-//CREATE DATABASE IF NOT EXISTS "${process.env.db}";
-const stmt = db.prepare(`
-CREATE TABLE IF NOT EXISTS "invites" (
+const statements = [
+`CREATE TABLE IF NOT EXISTS "invites" (
 	"uid"	INTEGER NOT NULL,
 	"message"	TEXT,
 	"alderon_name"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "nests" (
+`CREATE TABLE IF NOT EXISTS "nests" (
 	"uid"	INTEGER NOT NULL,
 	"message"	TEXT,
 	"server_id"	INTEGER,
@@ -19,9 +18,9 @@ CREATE TABLE IF NOT EXISTS "nests" (
 	"description"	TEXT,
 	"image"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "oldusers" (
+`CREATE TABLE IF NOT EXISTS "oldusers" (
 	"uid"	INTEGER NOT NULL,
 	"alderon_name"	TEXT,
 	"alderon_id"	TEXT,
@@ -29,57 +28,57 @@ CREATE TABLE IF NOT EXISTS "oldusers" (
 	"marks"	TEXT,
 	"tokens"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS oldusersdrz(
+`CREATE TABLE IF NOT EXISTS oldusersdrz(
    alderon_name VARCHAR(18) NOT NULL
   ,alderon_id   VARCHAR(11) NOT NULL
   ,discord_id   VARCHAR(21) NOT NULL
   ,marks        INTEGER  NOT NULL
   ,tokens       INTEGER  NOT NULL
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "redeem" (
+`CREATE TABLE IF NOT EXISTS "redeem" (
 	"uid"	INTEGER NOT NULL,
 	"alderon_name"	TEXT,
 	"code"	TEXT,
 	"dinosaur"	TEXT,
 	"growth"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "servers" (
+`CREATE TABLE IF NOT EXISTS "servers" (
 	"uid"	INTEGER NOT NULL,
 	"guildId"	TEXT,
 	"servers"	TEXT NOT NULL DEFAULT '[]',
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "shop" (
+`CREATE TABLE IF NOT EXISTS "shop" (
 	"uid"	INTEGER NOT NULL,
 	"dinosaur"	TEXT,
 	"cost"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "strikes" (
+`CREATE TABLE IF NOT EXISTS "strikes" (
 	"uid"	INTEGER NOT NULL,
 	"alderon_id"	TEXT,
 	"reason"	TEXT DEFAULT 'None',
 	"category"	TEXT DEFAULT 'Community',
 	"date"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "trivia" (
+`CREATE TABLE IF NOT EXISTS "trivia" (
 	"uid"	INTEGER,
 	"question"	TEXT,
 	"answer"	TEXT,
 	"active"	INTEGER DEFAULT 0,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "users" (
+`CREATE TABLE IF NOT EXISTS "users" (
 	"uid"	INTEGER NOT NULL,
 	"alderon_name"	TEXT,
 	"alderon_id"	TEXT,
@@ -98,9 +97,9 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"last_seen"	INTEGER,
 	"last_farm"	INTEGER DEFAULT 0,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
+);`,
 
-CREATE TABLE IF NOT EXISTS "worldevents" (
+`CREATE TABLE IF NOT EXISTS "worldevents" (
 	"uid"	INTEGER NOT NULL,
 	"type"	TEXT NOT NULL DEFAULT 'None',
 	"alderon_name"	TEXT,
@@ -108,8 +107,14 @@ CREATE TABLE IF NOT EXISTS "worldevents" (
 	"time"	INTEGER,
 	"coordinate"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);
-`);
-	stmt.run();
+);`
+].map(sql => db.prepare(sql));
+
+const myTransaction = db.transaction((data) => {
+  for (const stmt of statements) {
+    stmt.run(data);
+  }
+});
+
 	return 0;
 }
