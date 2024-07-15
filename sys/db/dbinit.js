@@ -116,4 +116,5 @@ CREATE TABLE IF NOT EXISTS "worldevents" (
         console.log("DBinitiated");
     }
       );
+	return 0;
 }
