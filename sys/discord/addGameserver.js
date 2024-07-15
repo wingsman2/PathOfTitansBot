@@ -11,6 +11,7 @@ function addGameserver(interaction, ip, port, password) {
     if (data) {
 
         let servers = JSON.parse(data.servers);
+        console.log(`Servers:'${servers}'`);
         servers.push({
             "ip": ip,
             "port": port,
