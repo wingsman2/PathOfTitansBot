@@ -1,6 +1,6 @@
 exports.initdb = function(){
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
-db.run(`
+db.prepare(`
        CREATE DATABASE IF NOT EXISTS "NyghtPotBot";
 ;
 
