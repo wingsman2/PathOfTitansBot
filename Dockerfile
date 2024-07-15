@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 # USER node
 ENV db="NyghtPotBot.db"
+ENV discord_token=""
 RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
