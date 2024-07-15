@@ -1,7 +1,7 @@
 exports.initdb = function(){
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
-db.prepare(`
-       CREATE DATABASE IF NOT EXISTS "NyghtPotBot";
+const stmt = db.prepare(`
+       CREATE DATABASE IF NOT EXISTS "${process.env.db}";
 ;
 
 CREATE TABLE IF NOT EXISTS "invites" (
@@ -111,10 +111,7 @@ CREATE TABLE IF NOT EXISTS "worldevents" (
 	"coordinate"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
 );
-`,
-      function(error){
-        console.log("DBinitiated");
-    }
-      );
+`);
+	stmt.run();
 	return 0;
 }
