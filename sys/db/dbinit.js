@@ -111,6 +111,7 @@ const statements = [
 ];
 
   for (const stmt of statements) {
+	  console.log(stmt);
     db.prepare(stmt).run;
   };
 
