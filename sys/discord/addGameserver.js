@@ -5,6 +5,7 @@ function addGameserver(interaction, ip, port, password) {
 
 
     const data = db.prepare(`SELECT servers FROM servers WHERE guildId = '${interaction.guildId}';`).get();
+    console.log(`Adding Server IP:'${ip}' Port:'${port}' Pass:'${password}' ID:'${interaction.guildId}'`);
 
     if (data) {
 
