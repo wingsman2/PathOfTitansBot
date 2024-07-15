@@ -7,6 +7,7 @@ const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, GuildEmoji 
 const token = ``;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+console.log(process.env.db);
 const db = require('better-sqlite3')(`./sys/db/${process.env.db}`);
 const cdb = require('./sys/db/dbinit.js');
 cdb.initdb();
