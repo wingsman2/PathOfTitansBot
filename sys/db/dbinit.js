@@ -6,7 +6,7 @@ const statements = [
 	"message"	TEXT,
 	"alderon_name"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "nests" (
 	"uid"	INTEGER NOT NULL,
@@ -18,7 +18,7 @@ const statements = [
 	"description"	TEXT,
 	"image"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "oldusers" (
 	"uid"	INTEGER NOT NULL,
@@ -28,7 +28,7 @@ const statements = [
 	"marks"	TEXT,
 	"tokens"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS oldusersdrz(
    alderon_name VARCHAR(18) NOT NULL
@@ -36,7 +36,7 @@ const statements = [
   ,discord_id   VARCHAR(21) NOT NULL
   ,marks        INTEGER  NOT NULL
   ,tokens       INTEGER  NOT NULL
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "redeem" (
 	"uid"	INTEGER NOT NULL,
@@ -45,21 +45,21 @@ const statements = [
 	"dinosaur"	TEXT,
 	"growth"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "servers" (
 	"uid"	INTEGER NOT NULL,
 	"guildId"	TEXT,
 	"servers"	TEXT NOT NULL DEFAULT '[]',
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "shop" (
 	"uid"	INTEGER NOT NULL,
 	"dinosaur"	TEXT,
 	"cost"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "strikes" (
 	"uid"	INTEGER NOT NULL,
@@ -68,7 +68,7 @@ const statements = [
 	"category"	TEXT DEFAULT 'Community',
 	"date"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "trivia" (
 	"uid"	INTEGER,
@@ -76,7 +76,7 @@ const statements = [
 	"answer"	TEXT,
 	"active"	INTEGER DEFAULT 0,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "users" (
 	"uid"	INTEGER NOT NULL,
@@ -97,7 +97,7 @@ const statements = [
 	"last_seen"	INTEGER,
 	"last_farm"	INTEGER DEFAULT 0,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`,
+)`,
 
 `CREATE TABLE IF NOT EXISTS "worldevents" (
 	"uid"	INTEGER NOT NULL,
@@ -107,12 +107,12 @@ const statements = [
 	"time"	INTEGER,
 	"coordinate"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
-);`
+)`
 ];
 
   for (const stmt of statements) {
-	  console.log(stmt);
-    db.prepare(stmt).run;
+	  const cmd = db.prepare(stmt);
+	  console.log(cmd.run());
   };
 
 	return 0;
