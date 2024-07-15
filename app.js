@@ -48,12 +48,12 @@ let rconCommandStandalone = require('./sys/rcon/rconCommandStandalone.js');
 // Variables & Channels
 
 // Server 1
-let activity_channel1 = '1076904154229903380';
-let combat_channel1 = '1076904243971239936';
-let admin_channel1 = '1076904212589449336';
-let report_channel1 = '1076904185695588462';
-let chat_channel1 = '1076904039993835610';
-let quest_channel1 = 'None';
+let activity_channel1 = 'process.env.activity_channel_id';
+let combat_channel1 = 'process.env.combat_channel_id';
+let admin_channel1 = 'process.env.admin_channel_id';
+let report_channel1 = 'process.env.report_channel_id';
+let chat_channel1 = 'process.env.chat_channel_id';
+let quest_channel1 = 'process.env.quest_channel_id';
 /*
 // Server 2
 let activity_channel2 = '1076904536465227916';
@@ -410,7 +410,7 @@ client.on('ready', () => {
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const clientId = '856923761013948417';
+const clientId = 'process.env.bot_id';
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	commands.push(command.data.toJSON());
