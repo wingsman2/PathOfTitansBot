@@ -108,14 +108,11 @@ const statements = [
 	"coordinate"	TEXT,
 	PRIMARY KEY("uid" AUTOINCREMENT)
 );`
-].map(sql => db.prepare(sql));
+];
 
-const myTransaction = db.transaction((data) => {
   for (const stmt of statements) {
-    stmt.run(data);
-  }
-});
-myTransaction();
+    db.prepare(stmt).run;
+  };
 
 	return 0;
 }
