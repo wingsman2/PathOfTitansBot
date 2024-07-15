@@ -112,7 +112,7 @@ const statements = [
 
   for (const stmt of statements) {
 	  const cmd = db.prepare(stmt);
-	  console.log(cmd.run());
+	  cmd.run();
   };
 
 	return 0;
