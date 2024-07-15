@@ -410,7 +410,7 @@ client.on('ready', () => {
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const clientId = 'process.env.bot_id';
+const clientId = process.env.bot_id;
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	commands.push(command.data.toJSON());
