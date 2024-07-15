@@ -25,11 +25,11 @@ function addGameserver(interaction, ip, port, password) {
 
 
     } else {
-        let servers = {
+        let servers = [{
             "ip": ip,
             "port": port,
             "password": password
-        };
+        }];
         let new_servers = JSON.stringify(servers);
 
         const dataX = db.prepare(`INSERT INTO servers (guildId, servers) Values (?, ?);`).run(interaction.guildId, new_servers);
