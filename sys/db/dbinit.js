@@ -1,8 +1,7 @@
 exports.initdb = function(){
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
+//CREATE DATABASE IF NOT EXISTS "${process.env.db}";
 const stmt = db.prepare(`
-CREATE DATABASE IF NOT EXISTS "${process.env.db}";
-
 CREATE TABLE IF NOT EXISTS "invites" (
 	"uid"	INTEGER NOT NULL,
 	"message"	TEXT,
