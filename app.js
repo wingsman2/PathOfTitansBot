@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 
 const { REST } = require('@discordjs/rest');
 const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, GuildEmoji } = require('discord.js');
-const token = ``;
+const token = process.env.discord_token;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 console.log(process.env.db);
