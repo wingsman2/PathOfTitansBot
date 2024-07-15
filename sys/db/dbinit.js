@@ -115,6 +115,7 @@ const myTransaction = db.transaction((data) => {
     stmt.run(data);
   }
 });
+myTransaction();
 
 	return 0;
 }
