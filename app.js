@@ -135,62 +135,62 @@ db.prepare(`DELETE FROM nests;`).run();
 
 var whnum = db.prepare(`SELECT servernum FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
 
-app.post("/${process.env.server_name}/PlayerChat/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerChat/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 1, chat_channel1);
 	console.log(req.body);
 });
-app.post("/${process.env.server_name}/PlayerKilled/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerKilled/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 1, combat_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerLogin/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLogin/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerLogout/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLogout/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerRespawn/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerRespawn/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerLeave/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLeave/1`, (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerReport/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerReport/1`, (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 1, report_channel1, refID);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/PlayerQuestComplete/1", (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerQuestComplete/1`, (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 1, quest_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/AdminSpectate/1", (req, res) => { //
+app.post(`/${process.env.server_name}/AdminSpectate/1`, (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
 
 });
-app.post("/${process.env.server_name}/AdminCommand/1", (req, res) => { //
+app.post(`/${process.env.server_name}/AdminCommand/1`, (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
@@ -408,7 +408,7 @@ schedule.scheduleJob('0 0 */5 * * *', function(){
 // Initialization ---------------------------------------------------------------------
 
 client.on('ready', () => {
-	console.log('NyghtPotBot\'s bot is online!');
+	console.log(`${process.env.server_name}'s bot is online!`);
 });
 
 const commands = [];
@@ -464,8 +464,26 @@ client.on('interactionCreate', async interaction => {
 		addGameserver(interaction, ip, port, password);
 	}
 
+    else if (commandName === 'linkchannels') {
+	        let webid = interaction.options.getString('webid');
+		let activity_channel = interaction.options.getString('activity_channel');
+		let combat_channel = interaction.options.getString('combat_channel');
+	        let admin_channel = interaction.options.getString('admin_channel');
+		let chat_channel = interaction.options.getString('report_channel');
+		let password = interaction.options.getString('chat_channel');
+	        let quest_channel = interaction.options.getString('quest_channel');
+		let moneylog_channel = interaction.options.getString('moneylog_channel');
+		let nesting_channel = interaction.options.getString('nesting_channel');
+	    
+		linkchannels(interaction, webid, activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel);
+	}
+
     else if (commandName === 'listgameserver') {
 		listGameserver(interaction);
+	}
+
+    else if (commandName === 'listchannels') {
+		listchannels(interaction);
 	}
 
     else if (commandName === 'removegameserver') {
