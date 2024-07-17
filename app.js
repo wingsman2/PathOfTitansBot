@@ -475,7 +475,7 @@ client.on('interactionCreate', async interaction => {
 		let moneylog_channel = interaction.options.getString('moneylog_channel');
 		let nesting_channel = interaction.options.getString('nesting_channel');
 	    
-		linkchannels(interaction, webid, activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel);
+		linkChannels(interaction, webid, activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel);
 	}
 
     else if (commandName === 'listgameserver') {
