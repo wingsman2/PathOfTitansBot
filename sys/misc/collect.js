@@ -8,7 +8,7 @@ const collect_cooldownTime = 1200000;
 
 function collect(data, server) {
 
-    const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (dataG) {
         let servers = JSON.parse(dataG.servers);
         console.log(servers);
