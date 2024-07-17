@@ -1,7 +1,7 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
-function linkchannels(interaction, webid, activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel) {
+function linkChannels(interaction, webid, activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel) {
 
 
     const data = db.prepare(`SELECT * FROM channels WHERE guildId = '${interaction.guildId}' AND webid = '${webid}';`).get();
@@ -17,4 +17,4 @@ function linkchannels(interaction, webid, activity_channel, combat_channel, admi
     }
 }
 
-module.exports = linkchannels;
+module.exports = linkChannels;
