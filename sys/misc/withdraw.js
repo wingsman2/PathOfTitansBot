@@ -7,7 +7,7 @@ var SourceQuery = require('sourcequery');
 
 function withdraw(data, server) {
     const client = index.Gbot; // 
-    var moneyLogChannel = client.channels.cache.get(`1082689334169325660`); // 
+    var moneyLogChannel = client.channels.cache.get(process.env.moneylog_channel_id); // 
 
     var dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
     if (dataG1) {
