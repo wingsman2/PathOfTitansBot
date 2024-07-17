@@ -43,8 +43,8 @@ function PlayerChatWebhook(data, id, channel) {
             let servers = JSON.parse(dataGx.servers);
 
                 if (data.Message.toLowerCase().includes(dataG1.answer.toLowerCase())) {
-                    rconCommandStandalone(`announce ${data.PlayerName} Got the answer and won 100.000 Marks! The answer was "${dataG1.answer}"`, servers[id-1]);
-                    rconCommandStandalone(`addmarks ${data.PlayerName} 100000`, servers[id-1]);
+                    rconCommandStandalone(`announce ${data.PlayerName} Got the answer and won "${dataG1.marks}" Marks! The answer was "${dataG1.answer}"`, servers[id-1]);
+                    rconCommandStandalone(`addmarks ${data.PlayerName} "${dataG1.marks}"`, servers[id-1]);
                     db.prepare(`UPDATE trivia SET active = 0 WHERE active = ?;`).run(id);
                 }
             }
