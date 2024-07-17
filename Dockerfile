@@ -12,6 +12,10 @@ ENV admin_channel_id="None"
 ENV report_channel_id="None"
 ENV chat_channel_id="None"
 ENV quest_channel_id="None"
+ENV moneylog_channel_id="None"
+ENV guild_id="None"
+ENV nesting_channel_id="None"
+ENV server_name="SetMe"
 RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
