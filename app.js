@@ -88,6 +88,8 @@ const cooldownTime = 1000;
 
 // Discord Command ---------------------------------------------------------------------
 let addGameserver = require('./sys/discord/addGameserver.js');
+let linkChannels = require('./sys/discord/linkChannels.js');
+let listChannels = require('./sys/discord/listChannels.js');
 let listGameserver = require('./sys/discord/listGameserver.js');
 let removeGameserver = require('./sys/discord/removeGameserver.js');
 let linkAlderonAccount = require('./sys/discord/linkAlderonAccount.js');
