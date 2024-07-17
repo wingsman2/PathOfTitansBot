@@ -54,6 +54,13 @@ const statements = [
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
+`CREATE TABLE IF NOT EXISTS "channels" (
+	"uid"	INTEGER NOT NULL,
+	"guildId"	TEXT,
+	"servers"	TEXT NOT NULL DEFAULT 'None',
+	PRIMARY KEY("uid" AUTOINCREMENT)
+)`,
+
 `CREATE TABLE IF NOT EXISTS "shop" (
 	"uid"	INTEGER NOT NULL,
 	"dinosaur"	TEXT,
