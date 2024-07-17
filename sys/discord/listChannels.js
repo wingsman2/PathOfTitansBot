@@ -1,7 +1,7 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
-function listchannels(interaction) {
+function listChannels(interaction) {
 
 
     const data = db.prepare(`SELECT servers FROM servers WHERE guildId = '${interaction.guildId}';`).get();
@@ -30,4 +30,4 @@ function listchannels(interaction) {
     }
 }
 
-module.exports = listchannels;
+module.exports = listChannels;
