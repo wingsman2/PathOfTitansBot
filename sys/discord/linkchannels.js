@@ -17,4 +17,4 @@ function linkchannels(interaction, webid, activity_channel, combat_channel, admi
     }
 }
 
-module.exports = addGameserver;
+module.exports = linkchannels;
