@@ -57,7 +57,15 @@ const statements = [
 `CREATE TABLE IF NOT EXISTS "channels" (
 	"uid"	INTEGER NOT NULL,
 	"guildId"	TEXT,
-	"servers"	TEXT NOT NULL DEFAULT 'None',
+ 	"webid"	INTEGER,
+	"activity_channel"	TEXT NOT NULL DEFAULT 'None',
+ 	"combat_channel"	TEXT NOT NULL DEFAULT 'None',
+  	"admin_channel"	TEXT NOT NULL DEFAULT 'None',
+   	"report_channel"	TEXT NOT NULL DEFAULT 'None',
+    	"chat_channel"	TEXT NOT NULL DEFAULT 'None',
+     	"quest_channel"	TEXT NOT NULL DEFAULT 'None',
+      	"moneylog_channel"	TEXT NOT NULL DEFAULT 'None',
+       	"nesting_channel"	TEXT NOT NULL DEFAULT 'None',
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
