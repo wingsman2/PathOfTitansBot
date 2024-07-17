@@ -15,7 +15,7 @@ function unstuck(agid, id, location) {
     }
     var newLocation = `(X=${oldCoords[0]+offsets[0]},Y=${oldCoords[1]+offsets[1]},Z=${oldCoords[2]+2000})`;
 
-    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG1) {
         return;
     }
