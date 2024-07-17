@@ -14,7 +14,7 @@ function onlineUserUpdate() {
     var dataGx = db.prepare(`SELECT alderon_name FROM users WHERE online = ?;`).all('Yes');
 
     db.prepare(`UPDATE users SET online = ?, server_id = ?`).run('No', 0);
-    var dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    var dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG1) {
         return;
     }
