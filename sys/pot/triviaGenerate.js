@@ -10,7 +10,7 @@ function triviaGenerate() {
   var dataG1 = db.prepare(`UPDATE trivia SET active = 0;`).run();
   
 
-  const data = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(`923181672810291220`);
+  const data = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
   if (data) {
       let servers = JSON.parse(data.servers);
 
