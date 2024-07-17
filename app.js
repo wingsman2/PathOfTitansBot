@@ -8,7 +8,7 @@ const token = process.env.discord_token;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 const db = require('better-sqlite3')(`./sys/db/${process.env.db}`);
-const cdb = require('./sys/db/dbinit.js');
+const cdb = require('./sys/setup/dbinit.js');
 cdb.initdb();
 
 
@@ -16,7 +16,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.port;
 app.use(bodyParser.json());
-app.listen(PORT, () => console.log(`>_ NyghtPotBot: Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`>_ ${process.env.server_name} Bot: Listening on port ${PORT}`));
 
 const schedule = require('node-schedule');
 
@@ -48,12 +48,12 @@ let rconCommandStandalone = require('./sys/rcon/rconCommandStandalone.js');
 // Variables & Channels
 
 // Server 1
-let activity_channel1 = 'process.env.activity_channel_id';
-let combat_channel1 = 'process.env.combat_channel_id';
-let admin_channel1 = 'process.env.admin_channel_id';
-let report_channel1 = 'process.env.report_channel_id';
-let chat_channel1 = 'process.env.chat_channel_id';
-let quest_channel1 = 'process.env.quest_channel_id';
+let activity_channel1 = process.env.activity_channel_id;
+let combat_channel1 = process.env.combat_channel_id;
+let admin_channel1 = process.env.admin_channel_id;
+let report_channel1 = process.env.report_channel_id;
+let chat_channel1 = process.env.chat_channel_id;
+let quest_channel1 = process.env.quest_channel_id;
 /*
 // Server 2
 let activity_channel2 = '1076904536465227916';
@@ -132,62 +132,62 @@ db.prepare(`DELETE FROM nests;`).run();
 
 // Webhooks
 // Server 1 webhooks
-app.post("/NyghtPotBot/PlayerChat/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerChat/1", (req, res) => { //
 	res.status(200).end()
 	PlayerChatWebhook(req.body, 1, chat_channel1);
 	console.log(req.body);
 });
-app.post("/NyghtPotBot/PlayerKilled/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerKilled/1", (req, res) => { //
 	res.status(200).end()
 	PlayerKilledWebhook(req.body, 1, combat_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerLogin/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerLogin/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLoginWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerLogout/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerLogout/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLogoutWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerRespawn/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerRespawn/1", (req, res) => { //
 	res.status(200).end()
 	PlayerRespawnWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerLeave/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerLeave/1", (req, res) => { //
 	res.status(200).end()
 	PlayerLeaveWebhook(req.body, 1, activity_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerReport/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerReport/1", (req, res) => { //
 	res.status(200).end()
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
 	PlayerReportWebhook(req.body, 1, report_channel1, refID);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/PlayerQuestComplete/1", (req, res) => { //
+app.post("/${process.env.server_name}/PlayerQuestComplete/1", (req, res) => { //
 	res.status(200).end()
 	console.log(req.body);
 	PlayerQuestCompleteWebhook(req.body, 1, quest_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/AdminSpectate/1", (req, res) => { //
+app.post("/${process.env.server_name}/AdminSpectate/1", (req, res) => { //
 	res.status(200).end()
 	AdminSpectateWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
 
 });
-app.post("/NyghtPotBot/AdminCommand/1", (req, res) => { //
+app.post("/${process.env.server_name}/AdminCommand/1", (req, res) => { //
 	res.status(200).end()
 	AdminCommandWebhook(req.body, 1, admin_channel1);
 	console.log(req.body);
