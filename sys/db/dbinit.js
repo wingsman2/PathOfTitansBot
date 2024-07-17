@@ -75,6 +75,7 @@ const statements = [
 	"question"	TEXT,
 	"answer"	TEXT,
 	"active"	INTEGER DEFAULT 0,
+	"marks"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
