@@ -67,7 +67,7 @@ function PlayerRespawnWebhook(data, id, channel, refID) {
         reportLogChannel.send({ embeds: [reportEmbed] });
     }
 
-    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG1) {
         return;
     }
