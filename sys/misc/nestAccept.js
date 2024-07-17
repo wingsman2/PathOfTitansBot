@@ -9,10 +9,10 @@ const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, ActionRowBu
 
 function nestAccept(data, server) {
     const client = index.Gbot;
-    const channelId = '1077211954374004808';
+    const channelId = process.env.nesting_channel_id;
 
 
-    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG1) {
         return;
     }
@@ -74,7 +74,7 @@ function nestAccept(data, server) {
         const dataGy = db.prepare(`SELECT * FROM nests WHERE creator = ? OR partner = ?;`).get(data.PlayerName, data.PlayerName);
         if (dataGy) {
             console.log('Message id: '+dataGy.message);
-            const channel = client.channels.cache.get(`1077211954374004808`);
+            const channel = client.channels.cache.get(process.env.nesting_channel_id);
             channel.messages.fetch(dataGy.message).then(message => {
                 db.prepare(`DELETE FROM nests WHERE message = ?`).run(message.id);
                 db.prepare(`DELETE FROM invites WHERE message = ?`).run(message.id);
