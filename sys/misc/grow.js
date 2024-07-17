@@ -3,7 +3,7 @@ const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 
 function grow(data, server) {
-    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG1) {
         return;
     }
