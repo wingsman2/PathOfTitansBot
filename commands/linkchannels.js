@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Link Discord Server Channels. Type None if you dont want to link the channel')
 		.addStringOption(option =>
 			option.setName('webid')
-				.setDescription('The webID of the server provided when adding server or in /listgameserver')
+				.setDescription('The webID of the server provided in /listgameserver')
 				.setRequired(true))
 		.addStringOption(option =>
 			option.setName('activity_channel')
