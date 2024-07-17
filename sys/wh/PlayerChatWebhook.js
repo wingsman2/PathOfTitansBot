@@ -38,7 +38,7 @@ function PlayerChatWebhook(data, id, channel) {
 
         var dataG1 = db.prepare(`SELECT * FROM trivia WHERE active = ?;`).get(id);
         if (dataG1) {
-            var dataGx = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+            var dataGx = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
             if (dataGx) {
             let servers = JSON.parse(dataGx.servers);
 
@@ -62,7 +62,7 @@ function PlayerChatWebhook(data, id, channel) {
         }
 
 
-        const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+        const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
         if (dataG) {
             let servers = JSON.parse(dataG.servers);
             if (data.ChannelName !== 'Global') {
