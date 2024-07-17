@@ -133,7 +133,7 @@ db.prepare(`DELETE FROM nests;`).run();
 // Webhooks
 // Server 1 webhooks
 
-var whnum = db.prepare(`SELECT servernum FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
+//var whnum = db.prepare(`SELECT servernum FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
 
 app.post(`/${process.env.server_name}/PlayerChat/1`, (req, res) => { //
 	res.status(200).end()
