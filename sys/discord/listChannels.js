@@ -13,6 +13,7 @@ function listChannels(interaction) {
 
         for (let i = 0; i < servers.length; i++) {
             const data2 = db.prepare(`SELECT * FROM channels WHERE guildId = '${interaction.guildId}' AND webid = '${servers[i].webid}';`).get();
+            if(data2){
             serverList+=`**Server ${i+1}**\nIP: \`${servers[i].ip}\`\nwebID: \`${servers[i].webid}\`\n`;
             serverList+=`activity_channel = ${data2.activity_channel}\n`;
             serverList+=`combat_channel = ${data2.combat_channel}\n`;
@@ -22,6 +23,9 @@ function listChannels(interaction) {
             serverList+=`quest_channel = ${data2.quest_channel}\n`;
             serverList+=`moneylog_channel = ${data2.moneylog_channel}\n`;
             serverList+=`nesting_channel = ${data2.nesting_channel}\n\n`;
+            } else {
+            serverList+=`No channels found! Please setup channels with /linkchannels\n\n`;
+            }
             //data2.forEach((dataX) => serverList+=dataX)
         }
 
