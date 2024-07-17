@@ -6,7 +6,7 @@ const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 function removeLink(data, server) {
 
         // Database handling
-        const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('1049506605827362916');
+        const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
         if (dataG) {
             let servers = JSON.parse(dataG.servers);
 
