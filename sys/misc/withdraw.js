@@ -9,7 +9,7 @@ function withdraw(data, server) {
     const client = index.Gbot; // 
     var moneyLogChannel = client.channels.cache.get(process.env.moneylog_channel_id); // 
 
-    var dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    var dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (dataG1) {
         let servers = JSON.parse(dataG1.servers);
 
