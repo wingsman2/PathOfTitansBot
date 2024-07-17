@@ -416,7 +416,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 const clientId = process.env.bot_id;
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	console.log(command);
 	commands.push(command.data.toJSON());
 }
 const rest = new REST({ version: '10' }).setToken(token);
