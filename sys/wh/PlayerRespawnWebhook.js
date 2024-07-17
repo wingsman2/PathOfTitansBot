@@ -28,7 +28,7 @@ function PlayerRespawnWebhook(data, id, channel) {
         const dataS = db.prepare(`UPDATE users SET online = 'Yes', spawned = ? WHERE alderon_id = ?;`).run(data.DinosaurType, data.PlayerAlderonId);
 
         if (id == 1 || id == 2) { // Server 1 and 2 are Semi-Realism
-            var dataGx = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+            var dataGx = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
             if (dataGx) {
                 let servers = JSON.parse(dataGx.servers);
                 if (dataG.discord_id == 'None') {
