@@ -483,7 +483,7 @@ client.on('interactionCreate', async interaction => {
 	}
 
     else if (commandName === 'listchannels') {
-		listchannels(interaction);
+		listChannels(interaction);
 	}
 
     else if (commandName === 'removegameserver') {
