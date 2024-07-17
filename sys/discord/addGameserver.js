@@ -12,7 +12,8 @@ function addGameserver(interaction, ip, port, password) {
         servers.push({
             "ip": ip,
             "port": port,
-            "password": password
+            "password": password,
+            "id": `${Number(servers[servers.length-1].id)+1}`
         });
         let new_servers = JSON.stringify(servers);
 
@@ -25,7 +26,8 @@ function addGameserver(interaction, ip, port, password) {
         let servers = [{
             "ip": ip,
             "port": port,
-            "password": password
+            "password": password,
+            "id": "1"
         }];
         let new_servers = JSON.stringify(servers);
 
