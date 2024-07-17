@@ -393,19 +393,20 @@ app.post("/NyghtPotBot/AdminCommand/4", (req, res) => { //
 
 
 // Trivia
-schedule.scheduleJob('0 0 * * * *', function(){
-	triviaGenerate();
-});
+//Disabling scheduled events for now
+//schedule.scheduleJob('0 0 * * * *', function(){
+//	triviaGenerate();
+//});
 
-schedule.scheduleJob('0 */5 * * * *', function(){
-	onlineUserUpdate();
-});
+//schedule.scheduleJob('0 */5 * * * *', function(){
+//	onlineUserUpdate();
+//});
 
-schedule.scheduleJob('0 0 */5 * * *', function(){
+//schedule.scheduleJob('0 0 */5 * * *', function(){
 
-	restartAllServers();
+//	restartAllServers();
 
-});
+//});
 
 // Initialization ---------------------------------------------------------------------
 
