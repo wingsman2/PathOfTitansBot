@@ -19,7 +19,7 @@ function withdraw(data, server) {
             if (dataG2.discord_id !== 'None' && !dataG2.discord_id.includes('P')) {
 
                 var sq = new SourceQuery(1000);
-                sq.open(servers[server-1].ip, Port=servers[server-1].port);
+                sq.open(servers[server-1].ip, servers[server-1].qport);
 
                 sq.getPlayers(function(err, players){
 
