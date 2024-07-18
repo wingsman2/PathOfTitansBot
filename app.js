@@ -135,66 +135,77 @@ db.prepare(`DELETE FROM nests;`).run();
 // Webhooks
 // Server 1 webhooks
 
-//var whnum = db.prepare(`SELECT servernum FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
+//let whnum = db.prepare(`SELECT servernum FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
 
-app.post(`/${process.env.server_name}/PlayerChat/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerChat/:id`, (req, res) => { //
 	res.status(200).end()
-	PlayerChatWebhook(req.body, 1, chat_channel1);
+	let whnum = db.prepare(`SELECT chat_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerChatWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
+	}
 });
-app.post(`/${process.env.server_name}/PlayerKilled/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerKilled/:id`, (req, res) => { //
 	res.status(200).end()
-	PlayerKilledWebhook(req.body, 1, combat_channel1);
-	console.log(req.body);
-
-});
-app.post(`/${process.env.server_name}/PlayerLogin/1`, (req, res) => { //
-	res.status(200).end()
-	PlayerLoginWebhook(req.body, 1, activity_channel1);
+	let whnum = db.prepare(`SELECT combat_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerKilledWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/PlayerLogout/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLogin/:id`, (req, res) => { //
 	res.status(200).end()
-	PlayerLogoutWebhook(req.body, 1, activity_channel1);
+	let whnum = db.prepare(`SELECT activity_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerLoginWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/PlayerRespawn/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLogout/:id`, (req, res) => { //
 	res.status(200).end()
-	PlayerRespawnWebhook(req.body, 1, activity_channel1);
+	let whnum = db.prepare(`SELECT activity_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerLogoutWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/PlayerLeave/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerRespawn/:id`, (req, res) => { //
 	res.status(200).end()
-	PlayerLeaveWebhook(req.body, 1, activity_channel1);
+	let whnum = db.prepare(`SELECT activity_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerRespawnWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/PlayerReport/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerLeave/:id`, (req, res) => { //
 	res.status(200).end()
+	let whnum = db.prepare(`SELECT activity_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	PlayerLeaveWebhook(req.body, req.params.id, whnum);
+	console.log(req.body);
+
+});
+app.post(`/${process.env.server_name}/PlayerReport/:id`, (req, res) => { //
+	res.status(200).end()
+	let whnum = db.prepare(`SELECT report_channel FROM channels WHERE webid = '${req.params.id}';`).get();
 	var refID = Math.random().toString(36).substr(2, 6).toUpperCase();
-	PlayerReportWebhook(req.body, 1, report_channel1, refID);
+	PlayerReportWebhook(req.body, req.params.id, whnum, refID);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/PlayerQuestComplete/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/PlayerQuestComplete/:id`, (req, res) => { //
 	res.status(200).end()
+	let whnum = db.prepare(`SELECT quest_channel FROM channels WHERE webid = '${req.params.id}';`).get();
 	console.log(req.body);
-	PlayerQuestCompleteWebhook(req.body, 1, quest_channel1);
-	console.log(req.body);
-
-});
-app.post(`/${process.env.server_name}/AdminSpectate/1`, (req, res) => { //
-	res.status(200).end()
-	AdminSpectateWebhook(req.body, 1, admin_channel1);
+	PlayerQuestCompleteWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 
 });
-app.post(`/${process.env.server_name}/AdminCommand/1`, (req, res) => { //
+app.post(`/${process.env.server_name}/AdminSpectate/:id`, (req, res) => { //
 	res.status(200).end()
-	AdminCommandWebhook(req.body, 1, admin_channel1);
+	let whnum = db.prepare(`SELECT admin_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	AdminSpectateWebhook(req.body, req.params.id, whnum);
+	console.log(req.body);
+
+});
+app.post(`/${process.env.server_name}/AdminCommand/:id`, (req, res) => { //
+	res.status(200).end()
+	let whnum = db.prepare(`SELECT admin_channel FROM channels WHERE webid = '${req.params.id}';`).get();
+	AdminCommandWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
 });
 
