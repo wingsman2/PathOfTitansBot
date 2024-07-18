@@ -471,10 +471,11 @@ client.on('interactionCreate', async interaction => {
 
     // Discord Commands
     if (commandName === 'addgameserver') {
-        let ip = interaction.options.getString('ip');
+		let ip = interaction.options.getString('ip');
 		let port = interaction.options.getString('port');
 		let password = interaction.options.getString('password');
-		addGameserver(interaction, ip, port, password);
+		let qport = interaction.options.getString('qport');
+		addGameserver(interaction, ip, port, password, qport);
 	}
 
     else if (commandName === 'linkchannels') {
