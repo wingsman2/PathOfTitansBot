@@ -28,7 +28,7 @@ function onlineUserUpdate() {
 
     for (let i = 0; i < servers.length; i++) {
         var sq = new SourceQuery(1000);
-        sq.open(servers[i].ip, Port=servers[i].port);
+        sq.open(servers[i].ip, servers[i].qport);
         sq.getPlayers(function(err, players){
 
             if (players) {
