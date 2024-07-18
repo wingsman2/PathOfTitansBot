@@ -24,7 +24,7 @@ function deposit(data, server) {
 
                 // Source Query
                 var sq = new SourceQuery(1000); // 1000ms timeout
-                sq.open(servers[server-1].ip, Port=servers[server-1].port);
+                sq.open(servers[server-1].ip, servers[server-1].qport);
 
                 sq.getPlayers(function(err, players){
 
