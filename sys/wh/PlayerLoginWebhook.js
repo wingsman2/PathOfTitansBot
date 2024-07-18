@@ -21,9 +21,9 @@ function PlayerLoginWebhook(data, webid, channel) {
 
 
     if (!dataG) {
-        const dataS = db.prepare(`INSERT INTO users (alderon_name, alderon_id, online, spawned, webid, login_time, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?);`).run(data.PlayerName, data.AlderonId, 'Yes', 'None', webid, Math.floor(Date.now() / 1000), Math.floor(Date.now() / 1000));
+        const dataS = db.prepare(`INSERT INTO users (alderon_name, alderon_id, online, spawned, server_id, login_time, last_seen) VALUES (?, ?, ?, ?, ?, ?, ?);`).run(data.PlayerName, data.AlderonId, 'Yes', 'None', webid, Math.floor(Date.now() / 1000), Math.floor(Date.now() / 1000));
     } else {
-        const dataS = db.prepare(`UPDATE users SET online = 'Yes', spawned = 'None', webid = ?, login_time = ?, last_seen = ? WHERE alderon_id = ?;`).run(webid, Math.floor(Date.now() / 1000), Math.floor(Date.now() / 1000),  data.AlderonId);
+        const dataS = db.prepare(`UPDATE users SET online = 'Yes', spawned = 'None', server_id = ?, login_time = ?, last_seen = ? WHERE alderon_id = ?;`).run(webid, Math.floor(Date.now() / 1000), Math.floor(Date.now() / 1000),  data.AlderonId);
     
     }
 
