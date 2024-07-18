@@ -18,5 +18,9 @@ module.exports = {
             option.setName('password')
                 .setDescription('The password')
                 .setRequired(true))
+        .addStringOption(option =>
+            option.setName('qport')
+                .setDescription('Query Port')
+                .setRequired(true))
 
 };
