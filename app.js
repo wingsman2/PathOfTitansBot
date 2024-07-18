@@ -142,7 +142,6 @@ app.post(`/${process.env.server_name}/PlayerChat/:id`, (req, res) => { //
 	let whnum = db.prepare(`SELECT chat_channel FROM channels WHERE webid = '${req.params.id}';`).get();
 	PlayerChatWebhook(req.body, req.params.id, whnum);
 	console.log(req.body);
-	}
 });
 app.post(`/${process.env.server_name}/PlayerKilled/:id`, (req, res) => { //
 	res.status(200).end()
