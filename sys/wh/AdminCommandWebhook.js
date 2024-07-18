@@ -7,7 +7,7 @@ function AdminCommandWebhook(data, id, channel) {
     const client = index.Gbot;
     var commandLogChannel = client.channels.cache.get(channel);
 
-    console.log(channel);
+    console.log(channel.admin_channel);
 
     if (!data.AdminAlderonId) {
         var line = `**[${id}] ${data.AdminName}** /${data.Command}`
