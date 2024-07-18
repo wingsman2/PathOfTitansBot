@@ -27,7 +27,8 @@ function PlayerLoginWebhook(data, id, channel) {
 
     const dataGy = db.prepare(`SELECT * FROM nests WHERE creator = ? OR partner = ?;`).get(data.PlayerName, data.PlayerName);
     if (dataGy) {
-        const channel = client.channels.cache.get(`1077211954374004808`);
+        let nestchanid = db.prepare(`SELECT nesting_channel FROM channels WHERE webid = '${id}';`).get();
+        const channel = client.channels.cache.get(nestchanid.nesting_channel);
         channel.messages.fetch(dataGy.message).then(message => {
             const row2 = new ActionRowBuilder()
             .addComponents(
