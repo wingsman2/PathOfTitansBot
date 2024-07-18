@@ -1,7 +1,7 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
-function addGameserver(interaction, ip, port, password) {
+function addGameserver(interaction, ip, port, password, qport) {
 
 
     const data = db.prepare(`SELECT servers FROM servers WHERE guildId = '${interaction.guildId}';`).get();
@@ -13,7 +13,8 @@ function addGameserver(interaction, ip, port, password) {
             "ip": ip,
             "port": port,
             "password": password,
-            "webid": `${Number(servers[servers.length-1].webid)+1}`
+            "webid": `${Number(servers[servers.length-1].webid)+1}`,
+            "qport": qport
         });
         let new_servers = JSON.stringify(servers);
 
@@ -27,7 +28,8 @@ function addGameserver(interaction, ip, port, password) {
             "ip": ip,
             "port": port,
             "password": password,
-            "webid": "1"
+            "webid": "1",
+            "qport": qport
         }];
         let new_servers = JSON.stringify(servers);
 
