@@ -6,7 +6,7 @@ const index = require("../../app.js")
 // logchannel.send(`Server: ${serverData.ip}\nCommand: ${command}`);
 
 
-async function rconCommandWebhook(command, server) {
+function rconCommandWebhook(command, server) {
 
     const bot = index.Gbot;
      var conn = new Rcon(server.ip, parseInt(server.port), server.password);
