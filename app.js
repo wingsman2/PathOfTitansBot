@@ -177,14 +177,13 @@ app.post(`/${process.env.bot_name}/AdminCommand/:id`, (req, res) => { //
 
 
 // Trivia
-//Disabling scheduled events for now
-//schedule.scheduleJob('0 0 * * * *', function(){
-//	triviaGenerate();
-//});
+schedule.scheduleJob('0 0 * * * *', function(){
+	triviaGenerate();
+});
 
-//schedule.scheduleJob('0 */5 * * * *', function(){
-//	onlineUserUpdate();
-//});
+schedule.scheduleJob('0 */5 * * * *', function(){
+	onlineUserUpdate();
+});
 
 //schedule.scheduleJob('0 0 */5 * * *', function(){
 
