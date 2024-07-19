@@ -9,7 +9,8 @@ function triviaGenerate() {
 
   var dataCH = db.prepare(`SELECT * FROM trivia WHERE NOT active = 0 `).run();
   console.log(dataCH);
-  if (dataCH){
+  console.log("no trivia");
+  if (0){
   var dataG1 = db.prepare(`UPDATE trivia SET active = 0;`).run();
   
 
