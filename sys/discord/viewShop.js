@@ -16,7 +16,7 @@ function viewShop(interaction) {
               
                 shopEmbed.setThumbnail('https://i.imgur.com/ku4iwLR.png');
                 shopEmbed.setFooter({ text: `${process.env.server_name}`, iconURL: 'https://i.imgur.com/ku4iwLR.png' });
-                shopEmbed.setURL(`process.env.server_url`);
+                shopEmbed.setURL(`${process.env.server_url)`);
 
 
                 console.log(shopEmbed.data.fields);
