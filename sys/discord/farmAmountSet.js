@@ -1,7 +1,7 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
-function farmAmountSet(webid, amount) {
+function farmAmountSet(interaction, webid, amount) {
 
 
     const data = db.prepare(`SELECT farmamount FROM settings WHERE webid = '${webid}';`).get();
