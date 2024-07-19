@@ -7,6 +7,8 @@ const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
 function triviaGenerate() {
 
+  var dataCH = db.prepare(`SELECT * FROM trivia`).run();
+  if (dataCH){
   var dataG1 = db.prepare(`UPDATE trivia SET active = 0;`).run();
   
 
@@ -29,6 +31,7 @@ function triviaGenerate() {
             }
         }
 
+  }
   }
 
 
