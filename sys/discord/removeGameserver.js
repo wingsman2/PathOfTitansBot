@@ -12,7 +12,7 @@ function removeGameserver(interaction, server) {
         index = server-1;
         servers.splice(index, 1);
         let new_servers = JSON.stringify(servers);
-
+        const dataZ = db.prepare(`DELETE FROM channels WHERE webid=?;`).run(index);
         const dataX = db.prepare(`UPDATE servers SET servers = ? WHERE guildId = ?;`).run(new_servers, interaction.guildId);
         interaction.reply({content: `${interaction.user} Server has been removed. Type /listgameserver to view your servers.`, ephemeral: true});
 
