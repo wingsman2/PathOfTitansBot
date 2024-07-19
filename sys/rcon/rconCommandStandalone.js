@@ -16,6 +16,8 @@ function rconCommandStandalone(command, server) {
         conn.send(command);
       }).on('response', function(str) {
         console.log("Webhook Response: " + str);
+        conn.disconnect();
+        console.log("Connection closed");
       }).on('error', function(err) {
         console.log("Error: " + err);
       }).on('end', function() {
@@ -23,7 +25,7 @@ function rconCommandStandalone(command, server) {
       });
 
       try {
-       async conn.connect();
+       conn.connect();
       } catch (e) {
         if (e instanceof TypeError) {
           // ignore TypeError
