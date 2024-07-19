@@ -23,7 +23,7 @@ function rconCommandStandalone(command, server) {
       });
 
       try {
-        conn.connect();
+       async conn.connect();
       } catch (e) {
         if (e instanceof TypeError) {
           // ignore TypeError
@@ -35,7 +35,7 @@ function rconCommandStandalone(command, server) {
           // something else
         } 
       }
-    conn.disconnect();
+    //conn.disconnect();
 
 
 
