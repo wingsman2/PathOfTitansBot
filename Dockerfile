@@ -10,6 +10,7 @@ ENV guild_id="None"
 ENV bot_name="SetMe"
 ENV server_name="SetMe"
 ENV server_url=""
+ENV linkedrole_id=""
 RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
