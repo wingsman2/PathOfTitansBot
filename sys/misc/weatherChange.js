@@ -2,7 +2,7 @@
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 
-function grow(data, server) {
+function weatherChange(data, server) {
 
     let seasons = {
         wet : {
@@ -35,4 +35,4 @@ function grow(data, server) {
 }
 
 
-module.exports = grow;
+module.exports = weatherChange;
