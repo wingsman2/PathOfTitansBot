@@ -177,8 +177,7 @@ app.post(`/${process.env.bot_name}/AdminCommand/:id`, (req, res) => { //
 
 
 // Trivia
-//schedule.scheduleJob('0 0 * * * *', function(){
-schedule.scheduleJob('0 */5 * * * *', function(){
+schedule.scheduleJob('0 0 * * * *', function(){
 	triviaGenerate();
 });
 
