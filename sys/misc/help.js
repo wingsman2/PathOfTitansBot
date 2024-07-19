@@ -4,6 +4,7 @@ const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 
 function help(data, server) {
 
+    let servers = JSON.parse(dataG1.servers);
     rconCommandStandalone(`whisper ${data.PlayerName} !help - Displays ingame commands`, servers[server-1]);
     rconCommandStandalone(`whisper ${data.PlayerName} !balance - shows current ERA and marks balances.`, servers[server-1]);
     rconCommandStandalone(`whisper ${data.PlayerName} !grow <stage/full> - Allows you to buy growth for ERA if your dino is setup in the store.`, servers[server-1]);
