@@ -53,8 +53,8 @@ const cooldownTime = 1000;
 
 // Discord Command ---------------------------------------------------------------------
 let addGameserver = require('./sys/discord/addGameserver.js');
-let linkChannels = require('./sys/discord/farmAmountSet.js');
-let linkChannels = require('./sys/discord/farmAmountSet.js');
+let farmAmountSet = require('./sys/discord/farmAmountSet.js');
+let farmAmountList = require('./sys/discord/farmAmountList.js');
 let linkChannels = require('./sys/discord/linkChannels.js');
 let listChannels = require('./sys/discord/listChannels.js');
 let listGameserver = require('./sys/discord/listGameserver.js');
