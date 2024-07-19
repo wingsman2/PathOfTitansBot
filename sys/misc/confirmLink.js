@@ -26,7 +26,7 @@ function confirmLink(data, server) {
                         client.on('ready', async () => {
                         let guild = await client.guilds.fetch(process.env.guild_id);
                         let members = await guild.members.fetch(dataG1.discord_id.replace('P',''));
-                        members.roles.add("1263688801679835146", "Linked Accounts");
+                        members.roles.add(process.env.linkedrole_id, "Linked Accounts");
                                 });
                         /*
                         let guild = client.guilds.cache.get(process.env.guild_id);
