@@ -19,13 +19,15 @@ function confirmLink(data, server) {
             if (dataG1) {
                 if (dataG1.discord_id.includes('P')) { // Change this after one week please..
                     db.prepare(`UPDATE users SET discord_id = ?, tokens = tokens + 100000 WHERE alderon_id = ?;`).run(dataG1.discord_id.replace('P',''), data.AlderonId);
-                    rconCommandStandalone(`whisper ${data.PlayerName} :sarcodance: Succesfully linked your account! If you want to get unlinked, you need to ask a staff member.`, servers[server-1])
+                    rconCommandStandalone(`whisper ${data.PlayerName} :sarcodance: Succesfully linked your account! If you want to get unlinked, you need to ask a staff member.`, servers[server-1]);
+                        let useridtmp = dataG1.discord_id.replace('P','');
+                        console.log(useridtmp);
 
 
                         client.login(token);
                         client.on('ready', async () => {
                         let guild = await client.guilds.fetch(process.env.guild_id);
-                        let members = await guild.members.fetch(dataG1.discord_id.replace('P',''));
+                        let members = await guild.members.fetch(useridtmp);
                         members.roles.add(process.env.linkedrole_id, "Linked Accounts");
                                 });
                         /*
