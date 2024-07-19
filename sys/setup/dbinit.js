@@ -20,24 +20,6 @@ const statements = [
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
-`CREATE TABLE IF NOT EXISTS "oldusers" (
-	"uid"	INTEGER NOT NULL,
-	"alderon_name"	TEXT,
-	"alderon_id"	TEXT,
-	"discord_id"	TEXT,
-	"marks"	TEXT,
-	"tokens"	INTEGER,
-	PRIMARY KEY("uid" AUTOINCREMENT)
-)`,
-
-`CREATE TABLE IF NOT EXISTS oldusersdrz(
-   alderon_name VARCHAR(18) NOT NULL
-  ,alderon_id   VARCHAR(11) NOT NULL
-  ,discord_id   VARCHAR(21) NOT NULL
-  ,marks        INTEGER  NOT NULL
-  ,tokens       INTEGER  NOT NULL
-)`,
-
 `CREATE TABLE IF NOT EXISTS "redeem" (
 	"uid"	INTEGER NOT NULL,
 	"alderon_name"	TEXT,
@@ -51,6 +33,13 @@ const statements = [
 	"uid"	INTEGER NOT NULL,
 	"guildId"	TEXT,
 	"servers"	TEXT NOT NULL DEFAULT '[]',
+	PRIMARY KEY("uid" AUTOINCREMENT)
+)`,
+
+`CREATE TABLE IF NOT EXISTS "settings" (
+	"uid"	INTEGER NOT NULL,
+	"webid"	INTEGER,
+	"variables"	TEXT NOT NULL DEFAULT '[]',
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
