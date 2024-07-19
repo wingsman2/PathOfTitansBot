@@ -1,6 +1,7 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
+const { Client } = require('discord.js');
 
 
 function confirmLink(data, server) {
