@@ -9,7 +9,8 @@ function addGameserver(interaction, ip, port, password, qport) {
     if (data) {
 
         let servers = JSON.parse(data.servers);
-        if(servers.length)
+        console.log(servers.length);
+        if(servers.length === 0)
         {
             const tempwebid = 0;
         } else {
