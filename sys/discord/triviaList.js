@@ -15,8 +15,8 @@ function triviaList(interaction) {
                         str+=`**#${dataG1[i].uid}**\nQ: \`${dataG1[i].question}\`\nA: \`${dataG1[i].answer}\`\nMarks: \`${dataG1[i].marks}\`\n`
                 }
 
-                var substrings = str.match(/[\s\S]{1,2000}(?:\r?\n|$)/g);
-                interaction.reply({content: substrings, ephemeral: true});
+                //var substrings = str.match(/[\s\S]{1,2000}(?:\r?\n|$)/g);
+                interaction.reply({content: str, ephemeral: true});
 
                 /*for (let i = 0; i < substrings.length; i++) {
                     interaction.member.guild.channels.cache.get(interaction.channelId).send(substrings[i]);
