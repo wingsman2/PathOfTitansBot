@@ -15,6 +15,7 @@ let grow = require('../misc/grow.js');
 let nestAccept = require('../misc/nestAccept.js');
 let nestDeny = require('../misc/nestDeny.js');
 let redeem = require('../misc/redeem.js');
+let help = require('../misc/help.js');
 
 
 const chatCommandcooldown = new Set();
@@ -89,6 +90,8 @@ function PlayerChatWebhook(data, id, channel) {
             nestDeny(data, id);
         }  else if (data.Message.startsWith('!redeem')) {
             redeem(data, id);
+        }  else if (data.Message.startsWith('!help')) {
+            help(data, id);
         }
 
 
