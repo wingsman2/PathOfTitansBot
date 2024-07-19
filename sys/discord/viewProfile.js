@@ -25,8 +25,8 @@ function viewProfile(interaction, name) {
                         profileEmbed.setTitle(`${dataG1.alderon_name}'s Profile [\`${dataG1.alderon_id}\`]`)
                       
                         profileEmbed.setThumbnail('https://i.imgur.com/ku4iwLR.png');
-                        profileEmbed.setFooter({ text: 'Mesozoic Era', iconURL: 'https://i.imgur.com/ku4iwLR.png' });
-                        profileEmbed.setURL('https://www.mesozoic-era.co.uk/');
+                        profileEmbed.setFooter({ text: `${process.env.server_name}`, iconURL: 'https://i.imgur.com/ku4iwLR.png' });
+                        profileEmbed.setURL(`${process.env.server_url}`);
 
                         profileEmbed.addFields(
                             { name: `:crossed_swords: Kills`, value: `${dataG1.kills}` , inline: true },
@@ -75,8 +75,8 @@ function viewProfile(interaction, name) {
                 profileEmbed.setTitle(`${dataG1.alderon_name}'s Profile [\`${dataG1.alderon_id}\`]`)
 
                 profileEmbed.setThumbnail('https://i.imgur.com/ku4iwLR.png');
-                profileEmbed.setFooter({ text: 'Mesozoic Era', iconURL: 'https://i.imgur.com/ku4iwLR.png' });
-                profileEmbed.setURL('https://www.mesozoic-era.co.uk/');
+                profileEmbed.setFooter({ text: `${process.env.server_name}`, iconURL: 'https://i.imgur.com/ku4iwLR.png' });
+                profileEmbed.setURL(`${process.env.server_url}`);
               
                 profileEmbed.addFields(
                     { name: `:crossed_swords: Kills`, value: `${dataG1.kills}` , inline: true },
@@ -126,8 +126,8 @@ function viewProfile(interaction, name) {
                 profileEmbed.setTitle(`${dataG1.alderon_name}'s Profile [\`${dataG1.alderon_id}\`]`)
       
                 profileEmbed.setThumbnail('https://i.imgur.com/ku4iwLR.png');
-                profileEmbed.setFooter({ text: 'Mesozoic Era', iconURL: 'https://i.imgur.com/ku4iwLR.png' });
-                profileEmbed.setURL('https://www.mesozoic-era.co.uk/');
+                profileEmbed.setFooter({ text: `${process.env.server_name}`, iconURL: 'https://i.imgur.com/ku4iwLR.png' });
+                profileEmbed.setURL(`${process.env.server_url}`);
 
                 profileEmbed.addFields(
                     { name: `:crossed_swords: Kills`, value: `${dataG1.kills}` , inline: true },
