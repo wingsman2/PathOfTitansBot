@@ -17,7 +17,6 @@ function rconCommandStandalone(command, server) {
       }).on('response', function(str) {
         console.log("Webhook Response: " + str);
         conn.disconnect();
-        console.log("Connection closed");
       }).on('error', function(err) {
         console.log("Error: " + err);
       }).on('end', function() {
