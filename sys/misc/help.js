@@ -4,6 +4,10 @@ const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
 
 function help(data, server) {
 
+    const dataG1 = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
+    if (!dataG1) {
+        return;
+    }
     let servers = JSON.parse(dataG1.servers);
     rconCommandStandalone(`whisper ${data.PlayerName} !help - Displays ingame commands`, servers[server-1]);
     rconCommandStandalone(`whisper ${data.PlayerName} !balance - shows current ERA and marks balances.`, servers[server-1]);
