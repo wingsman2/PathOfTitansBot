@@ -8,13 +8,14 @@ function addGameserver(interaction, ip, port, password, qport) {
 
     if (data) {
 
+        let tempwebid;
         let servers = JSON.parse(data.servers);
         console.log(servers.length);
         if(servers.length === 0)
         {
-            const tempwebid = 0;
+            tempwebid = 0;
         } else {
-            const tempwebid = Number(servers[servers.length-1].webid);
+            tempwebid = Number(servers[servers.length-1].webid);
         }
         servers.push({
             "ip": ip,
