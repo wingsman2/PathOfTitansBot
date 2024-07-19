@@ -12,7 +12,7 @@ function listGameserver(interaction) {
         serverList+=`**Your ${servers.length} Servers:**\n\n`;
 
         for (let i = 0; i < servers.length; i++) {
-            serverList+=`**Server ${i+1}**\nIP: \`${servers[i].ip}\`\nPORT: \`${servers[i].port}\`\nPASSWORD: \`${servers[i].password}\`\nwebID: \`${servers[i].webid}\`\nQuery Port: \`${servers[i].qport}\`\n\n`;
+            serverList+=`**Server ${i+1}**\nIP: \`${servers[i].ip}\`\nRcon PORT: \`${servers[i].port}\`\nPASSWORD: \`${servers[i].password}\`\nwebID: \`${servers[i].webid}\`\nQuery Port: \`${servers[i].qport}\`\n\n`;
         }
 
         interaction.reply({content: serverList, ephemeral: true});
