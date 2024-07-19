@@ -21,7 +21,7 @@ function collect(data, server) {
                 collect_cooldown.delete(data.AlderonId);
             }, collect_cooldownTime);
 
-            const dataS1 = db.prepare(`SELECT variables FROM settings WHERE webid = ?;`).get(server);
+            const dataS1 = db.prepare(`SELECT farmamount FROM settings WHERE webid = ?;`).get(server);
             if (dataS1){
 
             // Check if user is linked / unlinked
