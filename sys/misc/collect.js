@@ -11,8 +11,6 @@ function collect(data, server) {
     const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (dataG) {
         let servers = JSON.parse(dataG.servers);
-        console.log(servers);
-
 
         if (collect_cooldown.has(data.AlderonId)) {
             rconCommandStandalone(`whisper ${data.PlayerName} Please wait for the 20 minute cooldown to end before using the command again.`, servers[server-1]);
@@ -22,6 +20,9 @@ function collect(data, server) {
             setTimeout(() => {
                 collect_cooldown.delete(data.AlderonId);
             }, collect_cooldownTime);
+
+            const dataS1 = db.prepare(`SELECT variables FROM settings WHERE webid = ?;`).get(server);
+            if (dataS1){
 
             // Check if user is linked / unlinked
             const dataG2 = db.prepare(`SELECT discord_id FROM users WHERE alderon_id = ?;`).get(data.AlderonId);
@@ -39,7 +40,9 @@ function collect(data, server) {
                 return;
             }
 
-
+            } else {
+                rconCommandStandalone(`whisper ${data.PlayerName} :pot: This server currently does not have /farm enabled.`, servers[server-1]);
+            }
 
 
         }
