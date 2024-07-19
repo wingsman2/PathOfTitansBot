@@ -12,11 +12,11 @@ function viewShop(interaction) {
                 const shopEmbed = new EmbedBuilder()
                 shopEmbed.setTimestamp();
                 shopEmbed.setColor('#0a0a0a');
-                shopEmbed.setTitle(`Mesozoic Era Shop`);
+                shopEmbed.setTitle(`${process.env.server_name} Shop`);
               
                 shopEmbed.setThumbnail('https://i.imgur.com/ku4iwLR.png');
-                shopEmbed.setFooter({ text: 'Mesozoic Era', iconURL: 'https://i.imgur.com/ku4iwLR.png' });
-                shopEmbed.setURL('https://www.mesozoic-era.co.uk/');
+                shopEmbed.setFooter({ text: `${process.env.server_name}`, iconURL: 'https://i.imgur.com/ku4iwLR.png' });
+                shopEmbed.setURL(`${process.env.server_url}`);
 
                 shopEmbed.addFields(
                         { name: `ID`, value: `-----` , inline: true },
@@ -39,7 +39,7 @@ function viewShop(interaction) {
 
 
         } else {
-                interaction.reply({content: `${interaction.user} Uh oh! Seems like the story is empty!`, ephemeral: true});
+                interaction.reply({content: `${interaction.user} Uh oh! Seems like the store is empty!`, ephemeral: true});
                 return;
         }
 }
