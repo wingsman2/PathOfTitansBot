@@ -39,7 +39,7 @@ const statements = [
 `CREATE TABLE IF NOT EXISTS "settings" (
 	"uid"	INTEGER NOT NULL,
 	"webid"	INTEGER,
-	"variables"	TEXT NOT NULL DEFAULT '[]',
+	"farmamount"	INTEGER,
 	PRIMARY KEY("uid" AUTOINCREMENT)
 )`,
 
