@@ -29,8 +29,8 @@ function collect(data, server) {
             if (dataG2) {
                 // Linked
                 if (dataG2.discord_id !== 'None' && !dataG2.discord_id.includes('P')) {
-                    rconCommandStandalone(`addmarks ${data.PlayerName} ${dataS1.faramount}`, servers[server-1]);
-                    rconCommandStandalone(`whisper ${data.PlayerName} :pot: You have collected ${dataS1.faramount} Marks!`, servers[server-1]);
+                    rconCommandStandalone(`addmarks ${data.PlayerName} ${dataS1.farmamount}`, servers[server-1]);
+                    rconCommandStandalone(`whisper ${data.PlayerName} :pot: You have collected ${dataS1.farmamount} Marks!`, servers[server-1]);
                 } else {
                     rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server.`, servers[server-1]);
                     return;
