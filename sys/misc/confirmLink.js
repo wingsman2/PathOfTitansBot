@@ -23,7 +23,7 @@ function confirmLink(data, server) {
 
 
                         client.login(token);
-                        let guild = client.guilds.cache.get("Server id");
+                        let guild = client.guilds.cache.get(process.env.guild_id);
                         console.log(guild);
                         let member = guild.members.find((m) => m.id === dataG1.discord_id);
                         console.log(member);
