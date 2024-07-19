@@ -14,7 +14,7 @@ function unlink(interaction, name) {
         interaction.reply({content: `${interaction.user} User was not found in the database. User might not be linked.`, ephemeral: false});
         return;
     } else {
-        interaction.reply({content: `${interaction.user} Unlinked <@${name}>.`, ephemeral: false});
+        interaction.reply({content: `${interaction.user} Unlinked <@${name}>. Don't forget to remove the Linked roled from their discord user.`, ephemeral: false});
         return;
     }
                 
