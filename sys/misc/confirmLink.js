@@ -21,8 +21,6 @@ function confirmLink(data, server) {
                     db.prepare(`UPDATE users SET discord_id = ?, tokens = tokens + 100000 WHERE alderon_id = ?;`).run(dataG1.discord_id.replace('P',''), data.AlderonId);
                     rconCommandStandalone(`whisper ${data.PlayerName} :sarcodance: Succesfully linked your account! If you want to get unlinked, you need to ask a staff member.`, servers[server-1]);
                         let useridtmp = dataG1.discord_id.replace('P','');
-                        console.log(useridtmp);
-
 
                         client.login(token);
                         client.on('ready', async () => {
@@ -30,13 +28,6 @@ function confirmLink(data, server) {
                         let members = await guild.members.fetch(useridtmp);
                         members.roles.add(process.env.linkedrole_id, "Linked Accounts");
                                 });
-                        /*
-                        let guild = client.guilds.cache.get(process.env.guild_id);
-                        console.log(guild);
-                        let member = guild.members.find((m) => m.id === dataG1.discord_id);
-                        console.log(member);
-                        member.roles.add("Linked");*/
-                        
                         
                 } else {
                     if (dataG1.discord_id == 'None') {
