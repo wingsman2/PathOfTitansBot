@@ -31,14 +31,18 @@ function grow(data, server) {
     let stageCost = Math.round(dataG3.cost / 3);
 
     if (args.length !== 2) {
-        console.log('1');
-        rconCommandStandalone(`whisper ${data.PlayerName} :pot: Command Usage: !grow <stage/full>. ${dataG3.dinosaur} Full Cost: ${fullCost}ERA Coins, Stage Cost: ${stageCost}ERA Coins. use !deposit <amount> to convert Marks to ERA Coins. You can also use !withdraw <amount> to convert ERA Coins to Marks. Use !bal to view your balance at any time. Need more information? Use !farm to collect Marks every 20 minutes. Use !help if you need more information about commands.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} :pot: Command Usage: !grow <stage/full>.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} ${dataG3.dinosaur} Full Cost: ${fullCost} ERA Coins, Stage Cost: ${stageCost} ERA Coins.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} Use !deposit <amount> to convert Marks to ERA Coins.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} Use !balance to view your balance at any time.`, servers[server-1]);
         return;
     }
 
     if (args[1] !== 'stage' && args[1] !== 'full') {
-        console.log('2');
-        rconCommandStandalone(`whisper ${data.PlayerName} :pot: Command Usage: !grow <stage/full>. ${dataG3.dinosaur} Full Cost: ${fullCost}ERA Coins, Stage Cost: ${stageCost}ERA Coins. use !deposit <amount> to convert Marks to ERA Coins. You can also use !withdraw <amount> to convert ERA Coins to Marks. Use !bal to view your balance at any time. Need more information? Use !farm to collect Marks every 20 minutes. Use !help if you need more information about commands.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} :pot: Command Usage: !grow <stage/full>.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} ${dataG3.dinosaur} Full Cost: ${fullCost} ERA Coins, Stage Cost: ${stageCost} ERA Coins.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} Use !deposit <amount> to convert Marks to ERA Coins.`, servers[server-1]);
+        rconCommandStandalone(`whisper ${data.PlayerName} Use !balance to view your balance at any time.`, servers[server-1]);
         return;
     }
 
@@ -49,7 +53,6 @@ function grow(data, server) {
             return;
         }
 
-        console.log('3');
         db.prepare(`UPDATE users SET tokens = tokens - ? WHERE discord_id = ?;`).run(stageCost, dataG2.discord_id);
         rconCommandStandalone(`modattr ${data.PlayerName} Growth 0.25`, servers[server-1]);
         rconCommandStandalone(`whisper ${data.PlayerName} :pot: Bought a ${dataG3.dinosaur} growth stage for ${stageCost} ERA Coins.`, servers[server-1]);
@@ -57,7 +60,6 @@ function grow(data, server) {
     }
 
     if (args[1] == 'full') {
-        console.log('4');
 
         if (fullCost > dataG2.tokens) {
             rconCommandStandalone(`whisper ${data.PlayerName} :pot: You do not have the funds to buy a grow for this dinosaur.`, servers[server-1]);
