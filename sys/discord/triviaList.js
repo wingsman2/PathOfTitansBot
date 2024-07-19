@@ -12,7 +12,7 @@ function triviaList(interaction) {
                 let str = '';
                 for (let i = 0; i < dataG1.length; i++) {
                         console.log(dataG1[i].answer);
-                        str+=`**#${dataG1[i].uid}**\nQ: \`${dataG1[i].question}\`\nA: \`${dataG1[i].answer}\`\n`
+                        str+=`**#${dataG1[i].uid}**\nQ: \`${dataG1[i].question}\`\nA: \`${dataG1[i].answer}\`\nMarks: \`${dataG1[i].marks}\`\n`
                 }
 
                 var substrings = str.match(/[\s\S]{1,2000}(?:\r?\n|$)/g);
