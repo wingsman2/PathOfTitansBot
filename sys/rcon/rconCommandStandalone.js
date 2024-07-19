@@ -11,7 +11,7 @@ function rconCommandStandalone(command, server) {
     const bot = index.Gbot;
      var conn = new Rcon(server.ip, parseInt(server.port), server.password);
 
-    conn.on('auth',async function() {
+    conn.on('auth',function() {
         console.log("Authenticated");
         conn.send(command);
       }).on('response', function(str) {
@@ -35,6 +35,7 @@ function rconCommandStandalone(command, server) {
           // something else
         } 
       }
+    conn.disconnect();
 
 
 
