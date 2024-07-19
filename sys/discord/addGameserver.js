@@ -9,11 +9,17 @@ function addGameserver(interaction, ip, port, password, qport) {
     if (data) {
 
         let servers = JSON.parse(data.servers);
+        if(Number(servers[servers.length-1].webid))
+        {
+            const tempwebid = Number(servers[servers.length-1].webid);
+        } else {
+            const tempwebid = 0;
+        }
         servers.push({
             "ip": ip,
             "port": port,
             "password": password,
-            "webid": `${Number(servers[servers.length-1].webid)+1}`,
+            "webid": `${tempwebid+1}`,
             "qport": qport
         });
         let new_servers = JSON.stringify(servers);
