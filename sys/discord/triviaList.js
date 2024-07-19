@@ -7,10 +7,6 @@ const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder } = require(
 
 function triviaList(interaction) {
 
-
-
-
-
         var dataG1 = db.prepare(`SELECT * FROM trivia`).all();
         if (dataG1.length !== 0) {
                 let str = '';
