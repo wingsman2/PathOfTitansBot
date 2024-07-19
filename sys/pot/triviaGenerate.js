@@ -8,8 +8,6 @@ const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 function triviaGenerate() {
 
   let dataCH = db.prepare(`SELECT * FROM trivia`).all();
-  console.log(`Trivia length: ${dataCH.length}`);
-  console.log("trying trivia empty");
   if (dataCH.length !== 0){
   var dataG1 = db.prepare(`UPDATE trivia SET active = 0;`).run();
   
