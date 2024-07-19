@@ -1,6 +1,10 @@
 // Import database
 const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 const rconCommandStandalone = require("../rcon/rconCommandStandalone.js")
+const { REST } = require('@discordjs/rest');
+const { Client, Collection, GatewayIntentBits, Routes, EmbedBuilder, GuildEmoji } = require('discord.js');
+const token = process.env.discord_token;
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 
 function confirmLink(data, server) {
@@ -16,11 +20,16 @@ function confirmLink(data, server) {
                 if (dataG1.discord_id.includes('P')) { // Change this after one week please..
                     db.prepare(`UPDATE users SET discord_id = ?, tokens = tokens + 100000 WHERE alderon_id = ?;`).run(dataG1.discord_id.replace('P',''), data.AlderonId);
                     rconCommandStandalone(`whisper ${data.PlayerName} :sarcodance: Succesfully linked your account! If you want to get unlinked, you need to ask a staff member.`, servers[server-1])
-                        async execute(interaction){
-                    const role = interaction.options.getRole('Linked');
-                    const member = interaction.options.getMember(dataG1.discord_id);
-                    member.roles.add(role);
-                        }
+
+
+                        client.login(token);
+                        let member = client.users.cache.get(dataG1.discord_id);
+                        console.log(member);
+                        let myrole = client.guild.roles.cache.find(role => role.name === "Linked");
+                        console.log(myrole);
+                        member.roles.add(myrole);
+                        
+                        
                 } else {
                     if (dataG1.discord_id == 'None') {
                         rconCommandStandalone(`whisper ${data.PlayerName} :AG: No pending Discord link. Go into our Discord and use /link to link your Discord ID.`, servers[server-1]);
