@@ -13,5 +13,9 @@ module.exports = {
 			option.setName('answer')
 				.setDescription('The answer')
 				.setRequired(true))
+		.addStringOption(option =>
+			option.setName('marks')
+				.setDescription('Marks Value')
+				.setRequired(true))
 
 };
