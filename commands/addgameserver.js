@@ -12,7 +12,7 @@ module.exports = {
 				.setRequired(true))
         .addStringOption(option =>
             option.setName('port')
-                .setDescription('The port')
+                .setDescription('The Rcon port')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('password')
