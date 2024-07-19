@@ -27,7 +27,6 @@ function PlayerRespawnWebhook(data, id, channel) {
     if (dataG) {
         const dataS = db.prepare(`UPDATE users SET online = 'Yes', spawned = ? WHERE alderon_id = ?;`).run(data.DinosaurType, data.PlayerAlderonId);
 
-        if (id == 1 || id == 2) { // Server 1 and 2 are Semi-Realism
             var dataGx = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
             if (dataGx) {
                 let servers = JSON.parse(dataGx.servers);
@@ -37,7 +36,7 @@ function PlayerRespawnWebhook(data, id, channel) {
                     rconCommandStandalone(`whisper ${data.PlayerName} You have a pending Discord link! Type !confirm to confirm your link and get access features such as; Nesting, leaderboard, profiles, and marks conversion for free!`, servers[id-1]);    
                 }
             }
-        }
+        
     }
     // db.prepare(`INSERT INTO worldevents (type, alderon_name, alderon_id, time, coordinate) VALUES (?, ?, ?, ?, ?);`).run('spawn' ,data.PlayerName, data.PlayerAlderonId, Math.floor(Date.now() / 1000), `(${stringLoc})`);
 }
