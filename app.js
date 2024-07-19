@@ -53,6 +53,8 @@ const cooldownTime = 1000;
 
 // Discord Command ---------------------------------------------------------------------
 let addGameserver = require('./sys/discord/addGameserver.js');
+let linkChannels = require('./sys/discord/farmAmountSet.js');
+let linkChannels = require('./sys/discord/farmAmountSet.js');
 let linkChannels = require('./sys/discord/linkChannels.js');
 let listChannels = require('./sys/discord/listChannels.js');
 let listGameserver = require('./sys/discord/listGameserver.js');
@@ -269,6 +271,16 @@ client.on('interactionCreate', async interaction => {
 	}
 
     else if (commandName === 'listchannels') {
+		listChannels(interaction);
+	}
+
+    else if (commandName === 'farmamountset') {
+	    let webid = interaction.options.getString('webid');
+	    let amount = interaction.options.getString('amount');
+		listChannels(interaction, webid, amount);
+	}
+
+    else if (commandName === 'farmamountlist') {
 		listChannels(interaction);
 	}
 
