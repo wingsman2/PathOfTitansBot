@@ -16,7 +16,7 @@ const index = require("../../app.js")
 function nestRequest(interaction) {
     const client = index.Gbot;
     // Get server info
-    const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get('923181672810291220');
+    const dataG = db.prepare(`SELECT servers FROM servers WHERE guildId = ?;`).get(process.env.guild_id);
     if (!dataG) {
         interaction.reply({content: `Something went wrong while trying to reach the server database.`, ephemeral: true});
         return;
