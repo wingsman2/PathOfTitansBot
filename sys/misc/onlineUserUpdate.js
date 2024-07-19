@@ -33,7 +33,7 @@ function onlineUserUpdate() {
 
             if (players) {
                 for (let j = 0; j < players.length; j++) {
-                    console.log(players[j].name);
+                    //console.log(players[j].name);
                     db.prepare(`UPDATE users SET online = ?, server_id = ?, last_seen = ? WHERE alderon_name = ?`).run('Yes', i+1, now, players[j].name);
                 } 
             }
