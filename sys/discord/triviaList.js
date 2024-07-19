@@ -16,10 +16,11 @@ function triviaList(interaction) {
                 }
 
                 var substrings = str.match(/[\s\S]{1,2000}(?:\r?\n|$)/g);
+                interaction.reply({content: substrings, ephemeral: true});
 
-                for (let i = 0; i < substrings.length; i++) {
+                /*for (let i = 0; i < substrings.length; i++) {
                     interaction.member.guild.channels.cache.get(interaction.channelId).send(substrings[i]);
-                }
+                }*/
         } else {
                 interaction.reply({content: `${interaction.user} No trivia questions found`, ephemeral: true});
                 return;
