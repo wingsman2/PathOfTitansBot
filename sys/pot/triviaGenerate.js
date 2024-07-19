@@ -7,7 +7,7 @@ const db = require('better-sqlite3')(`sys/db/${process.env.db}`);
 
 function triviaGenerate() {
 
-  var dataCH = db.prepare(`SELECT * FROM trivia WHERE NOT active = 0 `).all();
+  let dataCH = db.prepare(`SELECT COUNT(*) FROM trivia WHERE NOT active = 0 `).all();
   console.log(dataCH);
   console.log("trying trivia empty");
   if (dataCH){
