@@ -363,7 +363,8 @@ client.on('interactionCreate', async interaction => {
 	else if (commandName === 'trivia-add') {
 		let question = interaction.options.getString('question');
 		let answer = interaction.options.getString('answer');
-		triviaAdd(interaction, question, answer);
+		let marks = interaction.options.getString('marks');
+		triviaAdd(interaction, question, answer, marks);
 	}
 
 	else if (commandName === 'trivia-list') {
