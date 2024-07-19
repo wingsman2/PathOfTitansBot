@@ -6,12 +6,12 @@ const index = require("../../app.js")
 // logchannel.send(`Server: ${serverData.ip}\nCommand: ${command}`);
 
 
-function rconCommandWebhook(command, server) {
+function rconCommandStandalone(command, server) {
 
     const bot = index.Gbot;
      var conn = new Rcon(server.ip, parseInt(server.port), server.password);
 
-    conn.on('auth', function() {
+    conn.on('auth',async function() {
         console.log("Authenticated");
         conn.send(command);
       }).on('response', function(str) {
@@ -39,4 +39,4 @@ function rconCommandWebhook(command, server) {
 
 
 }
-module.exports = rconCommandWebhook;
+module.exports = rconCommandStandalone;
