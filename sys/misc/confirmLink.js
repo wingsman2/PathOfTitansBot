@@ -23,11 +23,11 @@ function confirmLink(data, server) {
 
 
                         client.login(token);
-                        let member = client.users.cache.get(dataG1.discord_id);
+                        let guild = client.guilds.cache.get("Server id");
+                        console.log(guild);
+                        let member = guild.members.find((m) => m.id === dataG1.discord_id);
                         console.log(member);
-                        let myrole = client.guild.roles.cache.find(role => role.name === "Linked");
-                        console.log(myrole);
-                        member.roles.add(myrole);
+                        member.roles.add("Linked");
                         
                         
                 } else {
