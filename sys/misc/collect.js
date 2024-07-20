@@ -32,11 +32,11 @@ function collect(data, server) {
                     rconCommandStandalone(`addmarks ${data.PlayerName} ${dataS1.farmamount}`, servers[server-1]);
                     rconCommandStandalone(`whisper ${data.PlayerName} :pot: You have collected ${dataS1.farmamount} Marks!`, servers[server-1]);
                 } else {
-                    rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server.`, servers[server-1]);
+                    rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server ${process.env.discordlink}.`, servers[server-1]);
                     return;
                 }
             } else {
-                rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server.`, servers[server-1]);
+                rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server ${process.env.discordlink}.`, servers[server-1]);
                 return;
             }
 
