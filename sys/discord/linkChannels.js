@@ -8,7 +8,7 @@ function linkChannels(interaction, webid, activity_channel, combat_channel, admi
 
     if (data) {
 
-        const dataX = db.prepare(`UPDATE channels SET activity_channel = ? combat_channel = ? admin_channel = ? report_channel = ? chat_channel = ? quest_channel = ? moneylog_channel = ? nesting_channel = ? WHERE guildId = ? AND webid = ?;`).run(activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel, interaction.guildId, webid);
+        const dataX = db.prepare(`UPDATE channels SET activity_channel = ?, combat_channel = ?, admin_channel = ?, report_channel = ?, chat_channel = ?, quest_channel = ?, moneylog_channel = ?, nesting_channel = ? WHERE guildId = ? AND webid = ?;`).run(activity_channel, combat_channel, admin_channel, report_channel, chat_channel, quest_channel, moneylog_channel, nesting_channel, interaction.guildId, webid);
         interaction.reply({content: `${interaction.user} Channels have been updated. Type /listchannels to view your channels.`, ephemeral: true});
 
     } else {
