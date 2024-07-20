@@ -1,0 +1,23 @@
+version: "3.8"
+volumes:
+  potbotdb:
+
+services:
+  potbot:
+    image: ghcr.io/wingsman2/PathOfTitansBot:main
+    environment:
+      # ⚠️ Required ⚠️
+      - db="PotBotDB.db" # what you want to call the DB
+      - discord_token="" # The discord Token from Discord Dev app page. BE CAREFULE with where you store this token
+      - bot_id="" # The ID of the Discord bot from Discord Dev app page.
+      - guild_id="None" # The Discord server ID this bot is going to run in.
+      - bot_name="SetMe" # name of the bot NO SPACES. Used for the inbound webhooks http://<ip or FQDN of container>/<bot_id>/<webhookchannel>/<webid #> You can get more info with /listchannels
+      - server_name="SetMe" # Name of the PoT server/ community.
+      - server_url="" # url to community website
+      - linkedrole_id="" # ID of the role that tracks users that linked their Alderon account in discord. You should also setup a "Linked" profile in commands.ini
+    container_name: potbot
+    volumes:
+      - potbotdb:/app/sys/db
+    ports:
+      - "33110:33110"
+    restart: unless-stopped
