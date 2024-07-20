@@ -15,5 +15,5 @@ RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
 COPY . .
-EXPOSE 110
+EXPOSE 33110
 CMD [ "node", "app.js" ]
