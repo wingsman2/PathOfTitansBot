@@ -23,6 +23,16 @@ function listChannels(interaction) {
             serverList+=`quest_channel = ${data2.quest_channel}\n`;
             serverList+=`moneylog_channel = ${data2.moneylog_channel}\n`;
             serverList+=`nesting_channel = ${data2.nesting_channel}\n\n`;
+            serverList+=`PlayerChatWebhook = /${process.env.bot_name}/PlayerChat/${servers[i].webid}\n`;
+            serverList+=`PlayerKilledWebhook = /${process.env.bot_name}/PlayerKilled/${servers[i].webid}\n`;
+            serverList+=`PlayerLoginWebhook = /${process.env.bot_name}/PlayerLogin/${servers[i].webid}\n`;
+            serverList+=`PlayerLogoutWebhook = /${process.env.bot_name}/PlayerLogout/${servers[i].webid}\n`;
+            serverList+=`PlayerRespawnWebhook = /${process.env.bot_name}/PlayerRespawn/${servers[i].webid}\n`;
+            serverList+=`PlayerLeaveWebhook = /${process.env.bot_name}/PlayerLeave/${servers[i].webid}\n`;
+            serverList+=`PlayerReportWebhook = /${process.env.bot_name}/PlayerReport/${servers[i].webid}\n`;
+            serverList+=`PlayerQuestCompleteWebhook = /${process.env.bot_name}/PlayerQuestComplete/${servers[i].webid}\n`;
+            serverList+=`AdminSpectateWebhook = /${process.env.bot_name}/AdminSpectate/${servers[i].webid}\n`;
+            serverList+=`AdminCommandWebhook = /${process.env.bot_name}/AdminCommand/${servers[i].webid}\n\n`;
             } else {
             serverList+=`No channels found! Please setup channels with /linkchannels\n\n`;
             }
