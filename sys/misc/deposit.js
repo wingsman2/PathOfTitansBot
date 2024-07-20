@@ -73,7 +73,7 @@ function deposit(data, server) {
                 });
 
             } else {
-                rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server.`, servers[server-1]);
+                rconCommandStandalone(`whisper ${data.PlayerName} :pot: Please link your Alderon account to our Discord by using /link in our Discord Server ${process.env.discordlink}.`, servers[server-1]);
                 return;
             }
         } else {
