@@ -11,6 +11,7 @@ ENV bot_name="SetMe"
 ENV server_name="SetMe"
 ENV server_url=""
 ENV linkedrole_id=""
+ENV discordlink=""
 RUN apk update && apk add npm
 RUN npm install
 RUN npm install sourcequery
