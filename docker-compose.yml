@@ -15,6 +15,7 @@ services:
       - server_name="SetMe" # Name of the PoT server/ community.
       - server_url="" # url to community website
       - linkedrole_id="" # ID of the role that tracks users that linked their Alderon account in discord. You should also setup a "Linked" profile in commands.ini
+      - discordlink="" # Permananet discord invite link to your discord.
     container_name: potbot
     volumes:
       - potbotdb:/app/sys/db
